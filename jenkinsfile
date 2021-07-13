@@ -18,6 +18,7 @@ pipeline{
                 dir('uat-directory'){
                     checkout([$class: 'GitSCM', branches: [[name: '*/uat']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-OS', url: 'https://github.com/osmanshaikhSystemsltd/Repo_Reg.git']]])
                     sh 'echo hello'
+                    sh 'echo uat push'
                 }
             }
         }
