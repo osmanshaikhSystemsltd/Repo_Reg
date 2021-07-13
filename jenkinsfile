@@ -1,4 +1,20 @@
 pipeline{
     agent any
-    
+    stages{
+        stage('Dev Checkout'){
+            steps{
+                dir('dev-directory'){
+                    checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-OS', url: 'https://github.com/osmanshaikhSystemsltd/Repo_Reg.git']]])
+                }
+            }       
+        }
+        stage('UAT checkout'){
+            steps{
+                dir('uat-directory'){
+                    checkout([$class: 'GitSCM', branches: [[name: '*/uat']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-OS', url: 'https://github.com/osmanshaikhSystemsltd/Repo_Reg.git']]])
+                    sh 'echo hello'
+                }
+            }
+        }
+    }
 }
