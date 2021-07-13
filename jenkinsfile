@@ -9,7 +9,7 @@ pipeline{
         stage('Dev Checkout'){
             steps{
                 dir('dev-directory'){
-                    checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-OS', url: 'https://github.com/osmanshaikhSystemsltd/Repo_Reg.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: 'c22a7d5243419f47edd6e51eb2f09e0fab18e9a3']], extensions: [[$class: 'BuildChooserSetting', buildChooser: [$class: 'AncestryBuildChooser', ancestorCommitSha1: 'c22a7d5243419f47edd6e51eb2f09e0fab18e9a3']]], userRemoteConfigs: [[credentialsId: 'github-OS', url: 'https://github.com/osmanshaikhSystemsltd/Repo_Reg.git']]])                }
                 }
             }       
         }
